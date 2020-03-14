@@ -22,16 +22,18 @@ class VenueTime::CLI
     while input != "exit"
       input = gets.strip.downcase
       case input
-      when "list artists"
+      when "artists"
         Artist.all
-      when "list venues"
+      when "venues"
         Venue.all
       when "nice to meet me"
         nice_to_meet_me
       when "showtime"
         showtime
       when "menu"
-        menu
+        options
+      else 
+        puts "Try again"
       end
     end
   end
