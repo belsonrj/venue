@@ -1,4 +1,4 @@
-class Venue 
+class VenueTime::CLI::Venues
   attr_accessor :name, :zip_code
   
   @@all = []
