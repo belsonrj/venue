@@ -3,8 +3,9 @@ class Artist
   
   @@all = []
   
-  def initialize(name)
+  def initialize(name, met)
     @name = name 
+    @met = met
     @@all << self 
   end 
   
@@ -21,4 +22,5 @@ class Artist
     @@all.size 
   end
   
+end
 end

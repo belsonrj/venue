@@ -1,11 +1,12 @@
 class Venue 
   attr_accessor :name, :zip_code
-  attr_reader: :artist 
   
   @@all = []
   
-  def initialize(name)
+  def initialize(name, zip_code)
     @name = name 
+    @zip_code = zip_code
+    @artists = []
     @@all << self
   end 
   
