@@ -11,7 +11,7 @@ class VenueTime::CLI
     puts "To list your artist collection, enter 'artists'."
     puts "To list venues you've visited, enter 'venues'."
     puts "To list live performers you've met, enter 'nice to meet me'."
-    puts "To search for local venues by zip code, enter 'showtime'."
+    puts "To see live shows today, enter 'showtime'."
     puts "To see menu again, enter 'menu'"
     puts "To exit, type 'exit'."
     puts "What's it gonna' be?"
@@ -29,10 +29,10 @@ class VenueTime::CLI
       when "nice to meet me"
         nice_to_meet_me
       when "showtime"
-        showtime
+        Showtime.today
       when "menu"
         options
-      else 
+      else
         puts "Try again"
       end
     end
