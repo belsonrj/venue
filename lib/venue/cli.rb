@@ -13,23 +13,24 @@ class VenueTime::CLI
     puts "To list live performers you've met, enter 'nice to meet me'."
     puts "To search for local venues by zip code, enter 'showtime'."
     puts "To exit, type 'exit'."
-    puts "What's it gonna be?"
+    puts "What's it gonna' be?"
   end
     
   def menu
-    input = gets.strip.downcase
-      
+    input = nil 
+    while input != "exit"
+      input = gets.strip.downcase
       case input
       when "list artists"
-        Artists.all
+        Artist.all
       when "list venues"
-        Venues.all
+        Venue.all
       when "nice to meet me"
         nice_to_meet_me
       when "showtime"
         showtime
       end
-     
+    end
   end
   
   def goodbye

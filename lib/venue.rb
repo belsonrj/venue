@@ -1,4 +1,4 @@
-class VenueTime::CLI::Venues
+class VenueTime::CLI::Venue
   attr_accessor :name, :zip_code
   
   @@all = []
@@ -11,7 +11,7 @@ class VenueTime::CLI::Venues
   end 
   
   def self.all
-    @@all
+    puts "many venues"
   end
   
   def artists

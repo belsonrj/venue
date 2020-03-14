@@ -1,4 +1,4 @@
-class Artist 
+class VenueTime::CLI::Artist
   attr_accessor :name, :met, :venue 
   
   @@all = []
