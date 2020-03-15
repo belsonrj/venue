@@ -1,7 +1,3 @@
-require 'nokogiri'
-require 'open-uri'
-require 'pry'
-
 class VenueTime::CLI::Showtime
   attr_accessor :name, :venue
   
@@ -14,7 +10,7 @@ class VenueTime::CLI::Showtime
   end
   
   def self.today
-    #self.scrape_shows
+    self.scrape_shows
 
   end
   
@@ -38,8 +34,11 @@ class VenueTime::CLI::Showtime
   end
   
   def self.scrape_web
-    Nokogiri::HTML(open(https://songkick.com/metro-areas/5202-us-philadelphia))
-    #name = doc.search(span.strong)
+    doc = Nokogiri::HTML(open("https://www.songkick.com/metro-areas/5202-us-philadelphia"))
     binding.pry
+    #show = self.new
+    show.name = doc.search("span.strong").text
+    show.venue = doc.search("span.a").text
+    show
   end
 end
