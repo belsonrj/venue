@@ -1,7 +1,19 @@
 class VenueTime::CLI::Showtime
+  attr_accessor :name, :venue
+  
+  @@all = []
+  
+  def initialize
+    @name = name
+    @venue = venue
+    @@all << self
+  end
   
   def self.today
-    puts "Glassjaw is playing at the TLA"
+    #puts "Live Shows for today's date!"
+    #@@all.each.with_index(1) do |name, venue, i|
+    #  puts "#{i}. #{.name}. Playing tonight at #{venue}."
+    #end
     
     show_1 = self.new 
     show_1.name = "Lauryn Hill"

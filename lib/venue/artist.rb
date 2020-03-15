@@ -1,5 +1,5 @@
 class VenueTime::CLI::Artist
-  attr_accessor :name, :met, :venue 
+  attr_accessor :name, :venue 
   
   @@all = []
   

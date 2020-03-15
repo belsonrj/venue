@@ -5,13 +5,13 @@ require "venue/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "venue"
-  spec.version       = Venue::VERSION
+  spec.version       = '0.1.0'
   spec.authors       = ["'Rick Belson'"]
   spec.email         = ["'belsonrj@aol.com'"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{"Live show and venue index, live show scraper"}
+  spec.description   = %q{"Live show and venue index, live show scraper"}
+  spec.homepage      = "https://github.com/belsonrj/venue.git"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -20,8 +20,8 @@ Gem::Specification.new do |spec|
     spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
     spec.metadata["homepage_uri"] = spec.homepage
-    spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-    spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+    spec.metadata["source_code_uri"] = "https://github.com/belsonrj/venue.git"
+    spec.metadata["changelog_uri"] = "https://github.com/belsonrj/venue/commits/master" #changelog.md url?
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."

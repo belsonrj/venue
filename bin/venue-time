@@ -1,13 +1,16 @@
 #!/usr/bin/env ruby
 
 require './lib/environment'
+require 'date'
+date = Date.today 
+puts date
 
 VenueTime::CLI.new.call
 
 
 
 
-#require "bundler/setup"
+require "bundler/setup"
 #require "venue"
 
 # You can add fixtures and/or initialization code here to make experimenting

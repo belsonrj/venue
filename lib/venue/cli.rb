@@ -29,12 +29,20 @@ class VenueTime::CLI
       when "nice to meet me"
         nice_to_meet_me
       when "showtime"
-        Showtime.today
+        showtime
       when "menu"
         options
       else
         puts "Try again"
       end
+    end
+  end
+  
+  def showtime
+    puts "Live shows for Today's date!"
+    @shows = VenueTime::CLI::Showtime.today
+    @shows.each.with_index(1) do |show, i|
+      puts "#{i}. #{show.name}. Playing tonight at #{show.venue}."
     end
   end
   
