@@ -1,3 +1,7 @@
+require 'nokogiri'
+require 'open-uri'
+require 'pry'
+
 class VenueTime::CLI::Showtime
   attr_accessor :name, :venue
   
@@ -10,7 +14,7 @@ class VenueTime::CLI::Showtime
   end
   
   def self.today
-    self.scrape_shows
+    #self.scrape_shows
 
   end
   
@@ -18,21 +22,24 @@ class VenueTime::CLI::Showtime
     shows = []
     shows << self.scrape_web
     
-    show_1 = self.new 
-    show_1.name = "Lauryn Hill"
-    show_1.venue = "Tower Theatre"
+    #show_1 = self.new 
+    #show_1.name = "Lauryn Hill"
+    #show_1.venue = "Tower Theatre"
     
-    show_2 = self.new 
-    show_2.name = "The Fray"
-    show_2.venue = "Xcite Center"
+    #show_2 = self.new 
+    #show_2.name = "The Fray"
+    #show_2.venue = "Xcite Center"
     
-    show_3 = self.new 
-    show_3.name = "Styx"
-    show_3.venue = "Penns Peak"
+    #show_3 = self.new 
+    #show_3.name = "Styx"
+    #show_3.venue = "Penns Peak"
     
     shows
   end
   
   def self.scrape_web
-    doc = Nokogiri
+    Nokogiri::HTML(open(https://songkick.com/metro-areas/5202-us-philadelphia))
+    #name = doc.search(span.strong)
+    binding.pry
+  end
 end
