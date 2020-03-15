@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'Nokogiri'
 require './lib/environment'
 require 'date'
 date = Date.today 

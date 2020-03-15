@@ -10,10 +10,13 @@ class VenueTime::CLI::Showtime
   end
   
   def self.today
-    #puts "Live Shows for today's date!"
-    #@@all.each.with_index(1) do |name, venue, i|
-    #  puts "#{i}. #{.name}. Playing tonight at #{venue}."
-    #end
+    self.scrape_shows
+
+  end
+  
+  def self.scrape_shows
+    shows = []
+    shows << self.scrape_web
     
     show_1 = self.new 
     show_1.name = "Lauryn Hill"
@@ -27,6 +30,9 @@ class VenueTime::CLI::Showtime
     show_3.name = "Styx"
     show_3.venue = "Penns Peak"
     
-    [show_1, show_2, show_3]
+    shows
   end
+  
+  def self.scrape_web
+    doc = Nokogiri
 end
