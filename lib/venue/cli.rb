@@ -36,7 +36,7 @@ class VenueTime::CLI
   end
   
   def index_venues
-    puts "Current collection of venues!".purple
+    puts "Current collection of venues!".blue
     @venue = VenueTime::CLI::Index.venues
     @venue.each.with_index(1) do |a, i|
       puts "#{i}. #{a}".green
