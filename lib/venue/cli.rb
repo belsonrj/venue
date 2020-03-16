@@ -11,7 +11,7 @@ class VenueTime::CLI
     puts "To list your artist collection, enter 'artists'."
     puts "To list venues you've visited, enter 'venues'."
     puts "To list live performers you've met, enter 'nice to meet me'."
-    puts "To see the top live shows for 2020, enter 'showtime'."
+    puts "To see the top upcoming live shows in Philly, enter 'showtime'."
     puts "To see menu again, enter 'menu'"
     puts "To exit, type 'exit'."
     puts "What's it gonna' be?"
@@ -39,10 +39,10 @@ class VenueTime::CLI
   end
   
   def showtime
-    puts "Biggest shows of 2020!"
-    @shows = VenueTime::CLI::Showtime.today
+    puts "Top Upcoming Concerts in Philadelphia!"
+    @shows = VenueTime::CLI::Showtime.scrape_shows
     @shows.each.with_index(1) do |show, i|
-      puts "#{i}. #{show.name}. Playing at #{show.venue}."
+      puts "#{i}. #{show}."      #Playing at #{show.venue}.
     end
   end
   

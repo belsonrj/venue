@@ -9,35 +9,25 @@ class VenueTime::CLI::Showtime
     @@all << self
   end
   
-  def self.today
-    self.scrape_shows
-  end
+  #def self.today
+   # self.scrape_shows
+  #end
   
   def self.scrape_shows
-    shows = []
-    shows << self.scrape_web
+    @shows = []
+    @shows << self.scrape_web
     
-    #show_1 = self.new 
-    #show_1.name = "Lauryn Hill"
-    #show_1.venue = "Tower Theatre"
-    
-    #show_2 = self.new 
-    #show_2.name = "The Fray"
-    #show_2.venue = "Xcite Center"
-    
-    #show_3 = self.new 
-    #show_3.name = "Styx"
-    #show_3.venue = "Penns Peak"
-    
-    shows
+    @shows
   end
   
   def self.scrape_web
     doc = Nokogiri::HTML(open("https://concertfix.com/concerts/philadelphia-pa"))
-    binding.pry
+    #binding.pry
     #show = self.new
-    show.name = doc.search("div.article-content ul>li>a[href]").text
+    doc.search("div.article-content ul>li>a[href]").each do |s|
+      @shows << s.text
+    end
     #show.venue = "where"
-    show
+    @shows
   end
 end
