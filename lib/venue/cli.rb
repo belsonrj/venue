@@ -7,13 +7,13 @@ class VenueTime::CLI
   end
   
   def options 
-    puts "Welcome to your live show index and local venue locator!"
-    puts "To list your artist collection, enter 'artists'."
-    puts "To list venues you've visited, enter 'venues'."
-    puts "To see the top upcoming live shows in Philly, enter 'showtime'."
-    puts "To see menu again, enter 'menu'"
-    puts "To exit, type 'exit'."
-    puts "What's it gonna' be?"
+    puts "Welcome to your live show index and local venue locator!".upcase.blue
+    puts "To list your artist collection, enter 'artists'.".yellow
+    puts "To list venues you've visited, enter 'venues'.".yellow
+    puts "To see the top upcoming live shows in Philly, enter 'showtime'.".yellow
+    puts "To see menu again, enter 'menu'".yellow
+    puts "To exit, type 'exit'.".red
+    puts "What's it gonna' be?".blue
   end
     
   def menu
@@ -30,37 +30,37 @@ class VenueTime::CLI
       when "menu"
         options
       else
-        puts "Try again"
+        puts "Try again".red
       end
     end
   end
   
   def index_venues
-    puts "Current collection of venues!"
+    puts "Current collection of venues!".purple
     @venue = VenueTime::CLI::Index.venues
     @venue.each.with_index(1) do |a, i|
-      puts "#{i}. #{a}"
+      puts "#{i}. #{a}".green
     end
   end
   
   
   def index_artists
-    puts "Current collection of artists!"
+    puts "Current collection of artists!".blue
     @artist = VenueTime::CLI::Index.artists
     @artist.each.with_index(1) do |a, i|
-      puts "#{i}. #{a}"
+      puts "#{i}. #{a}".yellow
     end
   end
   
   def showtime
-    puts "Top Upcoming Concerts in Philadelphia!"
+    puts "Top Upcoming Concerts in Philadelphia!".blue
     @shows = VenueTime::CLI::Showtime.scrape_shows
     @shows.each.with_index(1) do |show, i|
-      puts "#{i}. #{show}." 
+      puts "#{i}. #{show}.".yellow 
     end
   end
   
   def goodbye
-    puts "Keep supporting music!"
+    puts "Keep supporting music!".blue
   end
 end
