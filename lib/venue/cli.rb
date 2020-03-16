@@ -10,7 +10,6 @@ class VenueTime::CLI
     puts "Welcome to your live show index and local venue locator!"
     puts "To list your artist collection, enter 'artists'."
     puts "To list venues you've visited, enter 'venues'."
-    puts "To list live performers you've met, enter 'nice to meet me'."
     puts "To see the top upcoming live shows in Philly, enter 'showtime'."
     puts "To see menu again, enter 'menu'"
     puts "To exit, type 'exit'."
@@ -23,11 +22,9 @@ class VenueTime::CLI
       input = gets.strip.downcase
       case input
       when "artists"
-        Artist.all
+        index_artists
       when "venues"
-        Venue.all
-      when "nice to meet me"
-        nice_to_meet_me
+        index_venues
       when "showtime"
         showtime
       when "menu"
@@ -38,11 +35,28 @@ class VenueTime::CLI
     end
   end
   
+  def index_venues
+    puts "Current collection of venues!"
+    @venue = VenueTime::CLI::Index.venues
+    @venue.each.with_index(1) do |a, i|
+      puts "#{i}. #{a}"
+    end
+  end
+  
+  
+  def index_artists
+    puts "Current collection of artists!"
+    @artist = VenueTime::CLI::Index.artists
+    @artist.each.with_index(1) do |a, i|
+      puts "#{i}. #{a}"
+    end
+  end
+  
   def showtime
     puts "Top Upcoming Concerts in Philadelphia!"
     @shows = VenueTime::CLI::Showtime.scrape_shows
     @shows.each.with_index(1) do |show, i|
-      puts "#{i}. #{show}."      #Playing at #{show.venue}.
+      puts "#{i}. #{show}." 
     end
   end
   

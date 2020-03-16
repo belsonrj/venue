@@ -6,6 +6,7 @@ require_relative './venue/cli'
 require_relative './venue/artist'
 require_relative './venue/venue'
 require_relative './venue/showtime'
+require_relative './venue/index'
 
 
 #module VenueTime
