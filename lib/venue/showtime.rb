@@ -11,7 +11,6 @@ class VenueTime::CLI::Showtime
   
   def self.today
     self.scrape_shows
-
   end
   
   def self.scrape_shows
@@ -34,11 +33,11 @@ class VenueTime::CLI::Showtime
   end
   
   def self.scrape_web
-    doc = Nokogiri::HTML(open("https://www.songkick.com/metro-areas/5202-us-philadelphia"))
+    doc = Nokogiri::HTML(open("https://concertfix.com/concerts/philadelphia-pa"))
     binding.pry
     #show = self.new
-    show.name = doc.search("span.strong").text
-    show.venue = doc.search("span.a").text
+    show.name = doc.search("div.article-content ul>li>a[href]").text
+    #show.venue = "where"
     show
   end
 end
