@@ -1,10 +1,12 @@
 # Venue
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/venue`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+The CLI gem that I've designed is focused on two things. The first thing is indexing one's collection of artists that they've seen, as well as, the venues that they've visited. The second function behind this gem is to scrape the top 5 concerts happening in Philadelphia from a Philadelphia concert website. The list of concerts will change depending on what concerts are in the top 5. Each return shows the artist, venue, and concert date. 
 
 ## Installation
+
+git clone using this SSH: git@github.com:belsonrj/venue.git
+
+HTTPS: https://github.com/belsonrj/venue.git
 
 Add this line to your application's Gemfile:
 
@@ -19,10 +21,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install venue
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Development
 

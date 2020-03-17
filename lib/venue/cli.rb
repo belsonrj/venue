@@ -37,7 +37,7 @@ class VenueTime::CLI
   
   def index_venues
     puts "Current collection of venues!".blue
-    @venue = VenueTime::CLI::Index.venues
+    @venue = VenueTime::CLI::Venue.venues
     @venue.each.with_index(1) do |a, i|
       puts "#{i}. #{a}".green
     end
@@ -46,7 +46,7 @@ class VenueTime::CLI
   
   def index_artists
     puts "Current collection of artists!".blue
-    @artist = VenueTime::CLI::Index.artists
+    @artist = VenueTime::CLI::Artist.artists
     @artist.each.with_index(1) do |a, i|
       puts "#{i}. #{a}".yellow
     end
