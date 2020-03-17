@@ -54,7 +54,7 @@ class VenueTime::CLI
   
   def showtime
     puts "Top Upcoming Concerts in Philadelphia!".blue
-    @shows = VenueTime::CLI::Showtime.scrape_shows
+    @shows = VenueTime::CLI::Showtime.scrape_web
     @shows.each.with_index(1) do |show, i|
       puts "#{i}. #{show}.".yellow 
     end
