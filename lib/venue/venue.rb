@@ -11,7 +11,7 @@ class VenueTime::CLI::Venue
   end 
   
   def self.all
-    puts "many venues"
+    @@all
   end
   
   def artists

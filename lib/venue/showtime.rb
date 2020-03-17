@@ -1,13 +1,13 @@
 class VenueTime::CLI::Showtime
-  attr_accessor :name, :venue
+  #attr_accessor :name, :venue
   
-  @@all = []
+  #@@all = []
   
-  def initialize
-    @name = name
-    @venue = venue
-    @@all << self
-  end
+  #def initialize
+   # @name = name
+   # @venue = venue
+  #  @@all << self
+  #end
   
   def self.scrape_shows
     @shows = []

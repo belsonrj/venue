@@ -3,9 +3,8 @@ class VenueTime::CLI::Artist
   
   @@all = []
   
-  def initialize(name, met)
+  def initialize(name)
     @name = name 
-    @met = met
     @@all << self 
   end 
   
