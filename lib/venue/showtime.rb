@@ -9,8 +9,11 @@ class VenueTime::CLI::Showtime
   end
   
   def self.all
+    scrape_web
     @@all
   end
+  
+  
   
   def self.scrape_web
     doc = Nokogiri::HTML(open("https://concertfix.com/concerts/philadelphia-pa"))
@@ -18,6 +21,5 @@ class VenueTime::CLI::Showtime
     show.name = doc.search("div.article-content ul>li>a[href]").each do |s|
       @@all << s.text
     end
-    @@all
   end
 end

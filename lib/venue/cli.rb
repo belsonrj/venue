@@ -1,17 +1,15 @@
 class VenueTime::CLI
 
   def call 
+    showtime
     options
     menu
     goodbye
   end
   
   def options 
-    puts "Welcome to your live show index and local venue locator!".upcase.blue
-    puts "To list your artist collection, enter 'artists'.".yellow
-    puts "To list venues you've visited, enter 'venues'.".yellow
-    puts "To see the top upcoming live shows in Philly, enter 'showtime'.".yellow
-    puts "To see menu again, enter 'menu'".yellow
+    puts "To read more about an upcoming show enter the corresponding number".green
+    puts "To see menu again, enter 'menu'".green
     puts "To exit, type 'exit'.".red
     puts "What's it gonna' be?".blue
   end
@@ -53,10 +51,10 @@ class VenueTime::CLI
   end
   
   def showtime
-    puts "Top Upcoming Concerts in Philadelphia!".blue
-    @shows = VenueTime::CLI::Showtime.scrape_web
-    @shows.each.with_index(1) do |show, i|
-      puts "#{i}. #{show}.".yellow 
+    puts "Top Upcoming Concerts in Philadelphia!".upcase.blue
+    #@shows = VenueTime::CLI::Showtime.all
+    VenueTime::CLI::Showtime.all.each.with_index(1) do |show, i|
+      puts "#{i}. #{show}".yellow 
     end
   end
   
