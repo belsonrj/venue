@@ -1,4 +1,4 @@
-class VenueTime::CLI::Showtime
+  class VenueTime::CLI::Scraper
   attr_accessor :name 
   
   @@all = []
@@ -6,10 +6,6 @@ class VenueTime::CLI::Showtime
   def initialize
     @name = name
     @@all << self
-  end
-  
-  def self.all
-    @@all
   end
   
   def self.scrape_web
