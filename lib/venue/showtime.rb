@@ -5,14 +5,11 @@ class VenueTime::CLI::Showtime
   
   def initialize
     @name = name
-    @@all << self
   end
   
   def self.all
-    scrape_web
     @@all
   end
-  
   
   
   def self.scrape_web

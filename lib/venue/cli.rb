@@ -1,6 +1,7 @@
 class VenueTime::CLI
 
   def call 
+    VenueTime::CLI::Showtime.scrape_web
     showtime
     options
     menu
@@ -9,7 +10,7 @@ class VenueTime::CLI
   
   def options 
     puts "To read more about an upcoming show enter the corresponding number".green
-    puts "To see menu again, enter 'menu'".green
+    puts "To see shows again, enter 'shows'".green
     puts "To exit, type 'exit'.".red
     puts "What's it gonna' be?".blue
   end
@@ -25,8 +26,8 @@ class VenueTime::CLI
         index_venues
       when "showtime"
         showtime
-      when "menu"
-        options
+      when "shows"
+        showtime
       else
         puts "Try again".red
       end

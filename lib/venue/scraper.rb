@@ -14,6 +14,5 @@
     show.name = doc.search("div.article-content ul>li>a[href]").each do |s|
       Showtime.new << s.text
     end
-    Showtime.all
   end
 end
