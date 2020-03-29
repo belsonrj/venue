@@ -1,7 +1,8 @@
 class VenueTime::CLI
 
   def call 
-    VenueTime::CLI::Showtime.scrape_web
+    VenueTime::CLI::Scraper.scrape
+    VenueTime::CLI::Scraper.scrape_show
     showtime
     options
     menu
@@ -53,9 +54,8 @@ class VenueTime::CLI
   
   def showtime
     puts "Top Upcoming Concerts in Philadelphia!".upcase.blue
-    #@shows = VenueTime::CLI::Showtime.all
-    VenueTime::CLI::Showtime.all.each.with_index(1) do |show, i|
-      puts "#{i}. #{show}".yellow 
+    VenueTime::CLI::Scraper.all.each.with_index(1) do |show, i|
+      puts "#{i}. #{show.name}".yellow 
     end
   end
   
