@@ -1,11 +1,12 @@
 class VenueTime::CLI::Scraper
-  attr_accessor :name, :href
+  attr_accessor :name, :address, :info
 
   @@all = []
   
-  def initialize(name=nil, href=nil)
+  def initialize(name=nil, address=nil, info=nil)
     @name = name
-    @href = href
+    @address = address
+    @info = info
   end
   
   def self.all
@@ -13,26 +14,21 @@ class VenueTime::CLI::Scraper
   end
   
   
-  def self.scrape
-    @doc = Nokogiri::HTML(open("https://concertfix.com/concerts/philadelphia-pa"))
-    @scraping_block = @doc.search("div.article-content ul>li>a[href]")
-  end
+#  def self.scrape
+#    @doc = Nokogiri::HTML(open("https://www.phillymag.com/things-to-do/live-music-concert-venues-philadelphia/"))
+#    @scraping_block = @doc.search("div.wysiwyg")
+#  end
   
   
-  def self.scrape_show
+  def self.scrape_venue
+    @doc = Nokogiri::HTML(open("https://www.phillymag.com/things-to-do/live-music-concert-venues-philadelphia/"))
+    @scraping_block = @doc.search("div.wysiwyg")
     @scraping_block.each do |s|
-      name = s.css("a").text.strip
-#      href = s.css("a").first["href"]                   #href = student_card.css("a").first["href"]
-      show = self.new(name)
-      @@all << show
+      name = s.css("a>strong").text
+      address = s.css("p>em").text
+    #  info = s.css("p[text]"").text
+      venue = self.new(name, address)
+      @@all << venue
     end
   end
-  
-#  def self.scrape_web
-#    doc = Nokogiri::HTML(open("https://concertfix.com/concerts/philadelphia-pa"))
-#    show = Showtime.new
-#    show.name = doc.search("div.article-content ul>li>a[href]").each do |s|
-#      Showtime.new << s.text
-#    end
-#  end
 end

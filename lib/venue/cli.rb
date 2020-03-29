@@ -2,7 +2,7 @@ class VenueTime::CLI
 
   def call 
     VenueTime::CLI::Scraper.scrape
-    VenueTime::CLI::Scraper.scrape_show
+    VenueTime::CLI::Scraper.scrape_venue
     showtime
     options
     menu
