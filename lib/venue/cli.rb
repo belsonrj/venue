@@ -1,7 +1,7 @@
 class VenueTime::CLI
 
   def call 
-    @venues = VenueTime::CLI::Scraper
+    #@venues = VenueTime::CLI::Scraper
     VenueTime::CLI::Scraper.scrape_venue
     showtime
     options
@@ -25,7 +25,7 @@ class VenueTime::CLI
         showtime
       end
       if input.to_i.between?(1,5) 
-         VenueTime::CLI::Scraper.display_info(input)
+         VenueTime::CLI::Showtime.display_info(input)
       else
         "Try again".red
       end
@@ -34,8 +34,8 @@ class VenueTime::CLI
   
   def showtime
     puts "Top 5 Venues to see indie artists around Philadelphia!".upcase.blue.on_red.bold
-    VenueTime::CLI::Scraper.all.each.with_index(1) do |show, i|
-      puts "#{i}. #{show.name}. located at #{show.address}".yellow 
+    VenueTime::CLI::Showtime.all.each.with_index(1) do |show, i|
+      puts "#{i}. #{show.name}".yellow 
     end
   end
   
