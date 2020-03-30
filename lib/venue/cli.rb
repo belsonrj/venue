@@ -1,7 +1,6 @@
 class VenueTime::CLI
 
   def call 
-    #@venues = VenueTime::CLI::Scraper
     VenueTime::CLI::Scraper.scrape_venue
     showtime
     options
@@ -27,7 +26,7 @@ class VenueTime::CLI
       if input.to_i.between?(1,5) 
          VenueTime::CLI::Showtime.display_info(input)
       else
-        "Try again".red
+        puts "Type 'venues' to see options again".red
       end
     end
   end
