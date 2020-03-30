@@ -11,7 +11,7 @@ class VenueTime::CLI
   
   def options 
     puts "To read more about a venue enter the corresponding number".green
-    puts "To see shows again, enter 'shows'".green
+    puts "To see venues again, enter 'venues'".green
     puts "To exit, type 'exit'.".red
     puts "What's it gonna' be?".blue
   end
@@ -27,7 +27,7 @@ class VenueTime::CLI
         index_venues
       when "showtime"
         showtime
-      when "shows"
+      when "venues"
         showtime
       else
         puts "Try again".red
@@ -53,13 +53,13 @@ class VenueTime::CLI
   end
   
   def showtime
-    puts "Top 5 Venues for Concerts around Philadelphia!".upcase.blue
+    puts "Top 5 Venues to see indie artists around Philadelphia!".upcase.blue
     VenueTime::CLI::Scraper.all.each.with_index(1) do |show, i|
       puts "#{i}. #{show.name}. located at #{show.address}".yellow 
     end
   end
   
   def goodbye
-    puts "Keep supporting music!".blue
+    puts "Keep supporting indie music!".blue
   end
 end
