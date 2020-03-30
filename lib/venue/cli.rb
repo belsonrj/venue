@@ -29,17 +29,6 @@ class VenueTime::CLI
     end
   end
   
- 
-  
-  
-  def index_artists
-    puts "Current collection of artists!".blue
-    @artist = VenueTime::CLI::Artist.artists
-    @artist.each.with_index(1) do |a, i|
-      puts "#{i}. #{a}".yellow
-    end
-  end
-  
   def showtime
     puts "Top 5 Venues to see indie artists around Philadelphia!".upcase.blue
     VenueTime::CLI::Scraper.all.each.with_index(1) do |show, i|

@@ -1,5 +1,5 @@
 class VenueTime::CLI::Scraper
-  attr_accessor :name, :address, :info, :sample_artists
+  attr_accessor :name, :address, :info
 
   @@all = []
   
@@ -7,7 +7,6 @@ class VenueTime::CLI::Scraper
     @name = name
     @address = address
     @info = info
-    @sample_artists = sample_artists
   end
   
   def self.all
@@ -15,6 +14,7 @@ class VenueTime::CLI::Scraper
   end
 
   def self.scrape_venue
+ 
     doc = Nokogiri::HTML(open("https://www.phillymag.com/things-to-do/live-music-concert-venues-philadelphia/"))
   
     venue_1 = self.new
@@ -54,50 +54,4 @@ class VenueTime::CLI::Scraper
     index = input.to_i - 1
     puts "#{@@all[index].info}".yellow
   end
-
-  
-  
-#  def self.scrape_details
-#    @doc = Nokogiri::HTML(open("https://www.phillymag.com/things-to-do/live-music-concert-venues-philadelphia/"))
-#    @doc.search("div.wysiwyg").each do |venue_info|
-#      v = VenueTime::CLI::Showtime.new
-#      v.name = venue_info.search("a>strong:first").text.strip
-#      v.address = venue_info.search("p>em:first").text.strip
-#      v.info = venue_info.search("p[text]").text.strip
-#      
-#    end
-#  end
-  
-  
-  
-#  def self.scrape_venue
-#    @doc = Nokogiri::HTML(open("https://www.phillymag.com/things-to-do/live-music-concert-venues-philadelphia/"))
-#    @doc.search("div.wysiwyg").each do |v|
-#      venue = VenueTime::CLI::Showtime.new
-#      venue.name = v.search("a>strong").text.strip
-#      venue.address = v.search("p>em").text.strip
-#      venue.info = v.search("p[text]").text.strip
-      
-#      VenueTime::CLI::Showtime.add_venue(venue)
-#    end
-#  end
-  
-#  def self.new_scrape
-#    page = Nokogiri::HTML(open("https://www.phillymag.com/things-to-do/live-music-concert-venues-philadelphia/"))
-#    results = page.css
-#    @name = page.css("a>strong").text
-   # @address = page.css("p>em").text
-  
-  
-#  def self.scrape_venue
-#    @doc = Nokogiri::HTML(open("https://www.phillymag.com/things-to-do/live-music-concert-venues-philadelphia/"))
-#    @scraping_block = @doc.search("div.wysiwyg")
-#    @scraping_block.each do |s|
-#      name = s.css("a>strong").text
-#      address = s.css("p>em").text
-#      info = s.css("p[text]"").text
-#      venue = self.new(name, address)
-#      @@all << venue
-#    end
-#  end
 end
