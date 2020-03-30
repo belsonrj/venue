@@ -1,8 +1,8 @@
 class VenueTime::CLI
 
   def call 
-    VenueTime::CLI::Scraper.get_venue
-    VenueTime::CLI::Scraper.make_venue
+    #VenueTime::CLI::Scraper.get_venue
+    VenueTime::CLI::Scraper.scrape_venue
     showtime
     options
     menu
@@ -10,7 +10,7 @@ class VenueTime::CLI
   end
   
   def options 
-    puts "To read more about an upcoming show enter the corresponding number".green
+    puts "To read more about a venue enter the corresponding number".green
     puts "To see shows again, enter 'shows'".green
     puts "To exit, type 'exit'.".red
     puts "What's it gonna' be?".blue
@@ -53,9 +53,9 @@ class VenueTime::CLI
   end
   
   def showtime
-    puts "Top Upcoming Concerts in Philadelphia!".upcase.blue
+    puts "Top 5 Venues for Concerts around Philadelphia!".upcase.blue
     VenueTime::CLI::Scraper.all.each.with_index(1) do |show, i|
-      puts "#{i}. #{show.name}".yellow 
+      puts "#{i}. #{show.name}. located at #{show.address}".yellow 
     end
   end
   
