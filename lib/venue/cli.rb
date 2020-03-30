@@ -1,8 +1,8 @@
 class VenueTime::CLI
 
   def call 
-    VenueTime::CLI::Scraper.scrape
-    VenueTime::CLI::Scraper.scrape_venue
+    VenueTime::CLI::Scraper.get_venue
+    VenueTime::CLI::Scraper.make_venue
     showtime
     options
     menu
