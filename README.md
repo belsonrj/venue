@@ -1,6 +1,7 @@
 # Venue
 
-The CLI gem that I've designed is focused on two functions. The first function is indexing one's collection of artists that they've seen, as well as, the venues that they've visited. The second function behind this gem is to scrape the top 5 concerts happening in Philadelphia from a Philadelphia concert website. The list of concerts will change depending on what concerts are in the top 5. Each return shows the artist, venue, and concert date. 
+The CLI gem that I've designed is focused on listing the top 5 venues to see indie music in Philadelphia. 
+User is also able to get the address, phone number, and a short info paragraph about the selected venue.
 
 ## Installation
 
