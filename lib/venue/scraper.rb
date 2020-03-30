@@ -1,5 +1,5 @@
 class VenueTime::CLI::Scraper
-  attr_accessor :name, :address, :info
+  attr_accessor :name, :address, :info, :sample_artists
 
   @@all = []
   
@@ -7,6 +7,7 @@ class VenueTime::CLI::Scraper
     @name = name
     @address = address
     @info = info
+    @sample_artists = sample_artists
   end
   
   def self.all
@@ -19,7 +20,8 @@ class VenueTime::CLI::Scraper
     venue_1 = self.new
     venue_1.name = doc.search("body > div:nth-child(9) > div.content-with-sidebar > div.wysiwyg > p:nth-child(11) > a > strong").text
     venue_1.address = doc.search("body > div:nth-child(9) > div.content-with-sidebar > div.wysiwyg > p:nth-child(11) > em").text
-    venue_1.info = doc.search("div.wysiwyg p>br")
+    venue_1.info = doc.search("/html/body/div[7]/div[2]/div[1]/p[6]/text()[1]").text
+    venue_1.sample_artists = doc.search("body > div:nth-child(9) > div.content-with-sidebar > div.wysiwyg > p:nth-child(11) > strong:nth-child(8)").text.strip
     
     venue_2 = self.new
     venue_2.name = doc.search("body > div:nth-child(9) > div.content-with-sidebar > div.wysiwyg > p:nth-child(21) > a > strong").text
@@ -48,6 +50,10 @@ class VenueTime::CLI::Scraper
     @@all << venue_5
   end  
 
+  def self.display_info(input)
+    index = input.to_i - 1
+    puts "#{@@all[index].address}".green
+  end
 
   
   

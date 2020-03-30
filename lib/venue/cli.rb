@@ -1,7 +1,7 @@
 class VenueTime::CLI
 
   def call 
-    #VenueTime::CLI::Scraper.get_venue
+    @venues = VenueTime::CLI::Scraper
     VenueTime::CLI::Scraper.scrape_venue
     showtime
     options
@@ -20,28 +20,16 @@ class VenueTime::CLI
     input = nil 
     while input != "exit"
       input = gets.strip.downcase
-      case input
-      when "artists"
-        index_artists
-      when "venues"
-        index_venues
-      when "showtime"
-        showtime
-      when "venues"
-        showtime
+ #     case input
+      if input.to_i > 0 
+         VenueTime::CLI::Scraper.display_info(input)
       else
-        puts "Try again".red
+        "Try again".red
       end
     end
   end
   
-  def index_venues
-    puts "Current collection of venues!".blue
-    @venue = VenueTime::CLI::Venue.venues
-    @venue.each.with_index(1) do |a, i|
-      puts "#{i}. #{a}".green
-    end
-  end
+ 
   
   
   def index_artists
